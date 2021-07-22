@@ -20,7 +20,7 @@ numpy.ndarray
 **Uniformly distributed arrays in numpy**
 
 ```python
-array_name = np.arange(start_value,end_value,step_value)
+>>> array_name = np.arange(start_value,end_value,step_value)
 ```
 *Note: The `start_value` is inclusive and the `end_value` is exclusive.*
 
@@ -65,11 +65,11 @@ numpy.ndarray
 **Creating standard numpy arrays**
 An array with all "zeros" can be created using 
 ```python
- array_name = np.zeros(shape,data_type)
+>>> array_name = np.zeros(shape,data_type)
 ```
 An array with all "ones" can be created using 
 ```python
- array_name = np.ones(shape,data_type)
+>>> array_name = np.ones(shape,data_type)
 ```
 Some examples of the above functions
 ```python
@@ -87,6 +87,44 @@ array([[1, 1],
        [1, 1]], dtype=int32)
 ```
 **Indexing and Slicing**
+Numpy arrays can be indexed and sliced like regular python lists.
+Some examples of the same:
+```python
+### Creating a sample array ###
+>>> big_array = np.arange(0,100).reshape(10,10)
+>>> big_array
+array([[ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9],
+       [10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+       [20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
+       [30, 31, 32, 33, 34, 35, 36, 37, 38, 39],
+       [40, 41, 42, 43, 44, 45, 46, 47, 48, 49],
+       [50, 51, 52, 53, 54, 55, 56, 57, 58, 59],
+       [60, 61, 62, 63, 64, 65, 66, 67, 68, 69],
+       [70, 71, 72, 73, 74, 75, 76, 77, 78, 79],
+       [80, 81, 82, 83, 84, 85, 86, 87, 88, 89],
+       [90, 91, 92, 93, 94, 95, 96, 97, 98, 99]])
+
+### Indexing ###
+>>> row = 6
+>>> column = 9
+>>> big_array[row,column]
+69
+
+### Slicing ###
+>>> column_five = big_array[:,5]
+>>> column_five
+array([ 5, 15, 25, 35, 45, 55, 65, 75, 85, 95])
+>>> row_six = big_array[6,:]
+>>> row_six
+array([60, 61, 62, 63, 64, 65, 66, 67, 68, 69])
+>>> small_array = big_array[5:,4:8]
+>>> small_array
+array([[54, 55, 56, 57],
+       [64, 65, 66, 67],
+       [74, 75, 76, 77],
+       [84, 85, 86, 87],
+       [94, 95, 96, 97]])
+```
 
 ### Numpy and Images 
 
