@@ -127,6 +127,55 @@ array([[54, 55, 56, 57],
 ```
 
 ### Numpy and Images 
+A tipical image from the internet can be represented by a matrix of the shape `(height, width, no_of_channels)` where the number of channels is usually 3 for color and 1 for grayscale.
+
+**Opening Images using PIL**
+```python
+>>> from PIL import Image
+
+>>> image_array = Image.open('path/to/image.png')
+
+>>> type(image_array)
+PIL.JpegImagePlugin.JpegImageFile
+```
+
+**Converting Images into Numpy-Arrays**
+```python
+>>> from PIL import Image
+>>> import numpy as np
+
+>>> image_array = Image.open('path/to/image.png')
+>>> image_np = np.asarray(image_array)
+
+>>> type(image_np)
+numpy.ndarray
+```
+
+**Displaying Images**
+```python
+>>> import numpy as np
+>>> import matplotlib.pyplot as plt
+>>> from PIL import Image
+
+>>> puppy_image = Image.open('00-puppy.jpg')
+>>> type(puppy_image)
+<class 'PIL.JpegImagePlugin.JpegImageFile'>
+>>> puppy_image
+<PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=1950x1300 at 0x7F82AF887BE0>
+```
+![test](/assets/img/Computer-Vision/puppy_original.png)
+```python
+>>> puppy_array = np.asarray(puppy_image)
+>>> type(puppy_array)
+<class 'numpy.ndarray'>
+>>> puppy_array.shape
+(1300, 1950, 3)
+>>> plt.imshow(puppy_array)
+<matplotlib.image.AxesImage object at 0x7f82af7b9490>
+```
+![test](/assets/img/Computer-Vision/puppy_numpy.png)
+
+**Image Channels**
 
 ## Image Basics 
 
