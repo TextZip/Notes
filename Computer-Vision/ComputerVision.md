@@ -10,7 +10,7 @@ We will be using numpy for doing low-level math operations on images, the images
 >>> array_name = np.array([1,2,3,4])
 ```
 Some properties of the above created array:
-```bash
+```python
 >>> array_name
 array([1, 2, 3, 4])
 
@@ -26,7 +26,7 @@ array_name = np.arange(start_value,end_value,step_value)
 
 The above command is similar to range in python, some properties and outputs of the above command:
 
-```bash
+```python
 >>> even = np.arrange(0,20,2)
 >>> even
 array([ 0,  2,  4,  6,  8, 10, 12, 14, 16, 18])
@@ -40,7 +40,7 @@ array([[ 0,  2],
        [16, 18]])
 ```
 The above set of commands can be simplified into a single line
-```bash
+```python
 >>> even = np.arange(0,20,2).reshape(5,2)
 >>> even
 array([[ 0,  2],
@@ -87,7 +87,7 @@ array([[1, 1],
        [1, 1]], dtype=int32)
 ```
 **Indexing and Slicing**
- 
+
 ### Numpy and Images 
 
 ## Image Basics 
