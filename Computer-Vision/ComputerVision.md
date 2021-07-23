@@ -175,11 +175,131 @@ numpy.ndarray
 ```
 ![test](/assets/img/Computer-Vision/puppy_numpy.png)
 
-**Image Channels**
-
 ## Image Basics 
+**Reading Images using CV2**
+```python
+import cv2
+img = cv2.imread('DATA/00-puppy.jpg')
+while True:
+    cv2.imshow('Puppy',img)
+    # EXPLANATION FOR THIS LINE OF CODE:
+    # https://stackoverflow.com/questions/35372700/whats-0xff-for-in-cv2-waitkey1/39201163
+    # IF we've waited at least 1 ms AND we've pressed the Esc
+    if cv2.waitKey(1) & 0xFF == 27:
+        break
+cv2.destroyAllWindows()
+```
+
+**Reading Grayscale version of Images using CV2**
+```python
+>>> img_gray = cv2.imread('../DATA/00-puppy.jpg',cv2.IMREAD_GRAYSCALE)
+>>> plt.imshow(img_gray,cmap='gray')
+```
+***NOTE:** CV2 uses BGR color scheme where as matplotlib uses RGB, to convert from one color space to another use.*
+```python
+>>> img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+>>> plt.imshow(img_rgb)
+```
+
+**Resizing Images (Absolute)**
+```python
+>>> new_array =cv2.resize(image_array,(new_width, new_height))
+```
+**Resizing Images (Ratio)**
+```python
+>>> new_img =cv2.resize(img_rgb,(0,0),img,w_ratio,h_ratio)
+```
+
+**Flipping Images**
+```python
+# Along central x axis
+>>> new_img = cv2.flip(new_img,0)
+>>> plt.imshow(new_img)
+```
+![test](/assets/img/Computer-Vision/puppy_flip1.png)
+
+```python
+# Along central y axis
+>>> new_img = cv2.flip(new_img,1)
+>>> plt.imshow(new_img)
+```
+![test](/assets/img/Computer-Vision/puppy_flip2.png)
+
+```python
+# Along both axis
+>>> new_img = cv2.flip(new_img,-1)
+>>> plt.imshow(new_img)
+```
+![test](/assets/img/Computer-Vision/puppy_flip3.png)
+
+**Saving Image Files**
+```python
+>>> cv2.imwrite('my_new_picture.jpg',new_img)
+```
 
 ### Drawing on Images
+**Creating a black canvas**
+```python
+>>> import numpy as np
+>>> import matplotlib.pyplot as plt
+>>> import cv2
+
+>>> blank_img = np.zeros(shape=(512,512,3),dtype=np.int16)
+>>> plt.imshow(blank_img)
+```
+![test](/assets/img/Computer-Vision/canvas.png)
+
+**Drawing Rectangles**
+```python
+# pt1 = top left
+# pt2 = bottom right
+>>> cv2.rectangle(blank_img,pt1=(384,0),pt2=(510,128),color=(0,255,0)thickness=5)
+>>> plt.imshow(blank_img)
+```
+![test](/assets/img/Computer-Vision/rect1.png)
+
+```python
+# pt1 = top left
+# pt2 = bottom right
+>>> cv2.rectangle(blank_img,pt1=(200,200),pt2=(300,300),color=(0,0,255),thickness=5)
+>>> plt.imshow(blank_img)
+```
+![test](/assets/img/Computer-Vision/rect2.png)
+**Drawing Circles**
+```python
+>>> cv2.circle(img=blank_img, center=(100,100), radius=50, color=(255,0,0), thickness=5)
+>>> plt.imshow(blank_img)
+```
+![test](/assets/img/Computer-Vision/circle1.png)
+**Drawing Solid shapes**
+```python
+>>> cv2.circle(img=blank_img, center=(400,400), radius=50, color=(255,0,0), thickness=-1)
+>>> plt.imshow(blank_img)
+```
+![test](/assets/img/Computer-Vision/circle2.png)
+**Drawing Lines**
+```python
+# Draw a diagonal blue line with thickness of 5 px
+>>> cv2.line(blank_img,pt1=(0,0),pt2=(511,511),color=(102, 255, 255),thickness=5)
+>>> plt.imshow(blank_img)
+```
+![test](/assets/img/Computer-Vision/line.png)
+**Drawing Text**
+```python
+>>> font = cv2.FONT_HERSHEY_SIMPLEX
+>>> cv2.putText(blank_img,text='Hello',org=(10,500), fontFace=font,fontScale= 4,color=(255,255,255),thickness=2,lineType=cv2.LINE_AA)
+>>> plt.imshow(blank_img)
+```
+![test](/assets/img/Computer-Vision/text.png)
+**Drawing Polygons**
+```python
+>>> blank_img = np.zeros(shape=(512,512,3),dtype=np.int32)
+>>> vertices = np.array([[100,300],[200,200],[400,300],[200,400]],np.int32)
+>>> vertices = vertices.reshape((-1,1,2))
+>>> cv2.polylines(blank_img,[vertices],isClosed=True,color=(255,0,0),thickness=5)
+>>> plt.imshow(blank_img)
+```
+![test](/assets/img/Computer-Vision/polygon.png)
 
 ## Image Processing
 
