@@ -249,6 +249,8 @@ cv2.destroyAllWindows()
 ```
 ![test](/assets/img/Computer-Vision/canvas.png)
 
+
+
 **Drawing Rectangles**
 ```python
 # pt1 = top left
@@ -265,6 +267,9 @@ cv2.destroyAllWindows()
 >>> plt.imshow(blank_img)
 ```
 ![test](/assets/img/Computer-Vision/rect2.png)
+
+
+
 **Drawing Circles**
 ```python
 >>> cv2.circle(img=blank_img, center=(100,100), radius=50, color=(255,0,0), thickness=5)
@@ -277,6 +282,9 @@ cv2.destroyAllWindows()
 >>> plt.imshow(blank_img)
 ```
 ![test](/assets/img/Computer-Vision/circle2.png)
+
+
+
 **Drawing Lines**
 ```python
 # Draw a diagonal blue line with thickness of 5 px
@@ -291,6 +299,9 @@ cv2.destroyAllWindows()
 >>> plt.imshow(blank_img)
 ```
 ![test](/assets/img/Computer-Vision/text.png)
+
+
+
 **Drawing Polygons**
 ```python
 >>> blank_img = np.zeros(shape=(512,512,3),dtype=np.int32)
