@@ -127,7 +127,7 @@ array([[54, 55, 56, 57],
 ```
 
 ### Numpy and Images 
-A tipical image from the internet can be represented by a matrix of the shape `(height, width, no_of_channels)` where the number of channels is usually 3 for color and 1 for grayscale.
+A typical image from the internet can be represented by a matrix of the shape `(height, width, no_of_channels)` where the number of channels is usually 3 for color and 1 for grayscale.
 
 **Opening Images using PIL**
 ```python
@@ -373,8 +373,43 @@ cv2.destroyAllWindows()
 ```
 
 ## Image Processing
+**RGB Color Space**
+![test](/assets/img/Computer-Vision/RGB.png)
+
+
+
+**HSV Color Space**
+![test](/assets/img/Computer-Vision/HSV.png)
+
+
+
+**HSL Color Space**
+![test](/assets/img/Computer-Vision/HSL.png)
+
 
 ### Color Mapping
+**BGR to RGB**
+```python
+>>> img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+>>> plt.imshow(img)
+```
+![test](/assets/img/Computer-Vision/puppy_numpy.png)
+
+**BGR to HSV**
+```python
+>>> img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+>>> plt.imshow(img)
+```
+![test](/assets/img/Computer-Vision/BGR2HSV.png)
+
+**BGR to HSL**
+```python
+>>> img = cv2.cvtColor(img, cv2.COLOR_BGR2HLS)
+>>> plt.imshow(img)
+```
+![test](/assets/img/Computer-Vision/BGR2HSL.png)
+
+
 
 ### Blending, Pasting & Masks
 
@@ -382,10 +417,10 @@ cv2.destroyAllWindows()
 
 ### Blurring & Smoothing 
 
-## Video Basics
+<!-- ## Video Basics
 
 ## Object Detection
 
 ## Object Tracking 
 
-## Deep Learning
+## Deep Learning -->
